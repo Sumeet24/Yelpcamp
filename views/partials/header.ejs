@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>YelpCamp</title>
+		<link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="alert alert-danger">
+			<div class="btn-group btn-group-justified">
+				<a class="btn btn-outline-dark" href="/">YelpCamp</a>	
+				<% if(!currentUser){ %>
+				<a class="btn btn-outline-dark" href="/login">Login</a>
+				<a class="btn btn-outline-dark" href="/register">SignUp</a>
+				<% }else{ %>
+				<a class="btn btn-outline-dark" href="/logout">Logout</a>
+				<% } %>
+			</div>	
+			<div style="float:right">
+				<% if(currentUser){ %>
+				<h4> <a href="#">user: <%= currentUser.username %> </a></h4>
+				<% } %>
+			</div>
+		</div>
+		<br/>
+		<div class="container">
+			<% if(error && error.length > 0){ %>
+			<div class="alert alert-danger" role="alert"> 
+				<%= error %>	
+			</div>
+			<% } %>
+			<% if(success && success.length > 0){ %>
+			<div class="alert alert-success" role="alert"> 
+				<%= success %>	
+			</div>
+			<% } %>
+		<div>
+		<br/><br/>
+	
